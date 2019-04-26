@@ -1,3 +1,5 @@
+from imports.save_figures import save_fig
+
 import wave
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -24,9 +26,15 @@ f = wave.open('../data/train_curated/0006ae4e.wav')
 print(f.getparams())
 f.close()
 
+print('\n')
+
 plt.plot([1, 2, 3, 4, 5], [6, 7, 8, 9, 10])
+# save_fig('testing')
+
+print('\n')
 
 data, sampling_rate = librosa.load('../data/train_curated/0006ae4e.wav')
+print(len(data))
 
-plt.figure(figsize=(12, 4))
-librosa.display.waveplot(data, sr=sampling_rate)
+# plt.figure(figsize=(12, 4))
+# librosa.display.waveplot(data, sr=sampling_rate)
