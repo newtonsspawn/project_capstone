@@ -1,9 +1,6 @@
-from imports.save_figures import save_fig
-
-import wave
-import matplotlib.pyplot as plt
 import pandas as pd
 import librosa
+import wave
 
 curated_df = pd.read_csv('../data/train_curated.csv')
 print(curated_df.head())
@@ -22,19 +19,11 @@ print('\n')
 print(f"{len(noisy_df['labels'].unique())} unique labels")
 print('\n')
 
-f = wave.open('../data/train_curated/0006ae4e.wav')
+f = wave.open('../data/train_curated/0019ef41.wav')
 print(f.getparams())
 f.close()
 
 print('\n')
 
-plt.plot([1, 2, 3, 4, 5], [6, 7, 8, 9, 10])
-# save_fig('testing')
-
-print('\n')
-
-data, sampling_rate = librosa.load('../data/train_curated/0006ae4e.wav')
+data, sampling_rate = librosa.load('../data/train_curated/0019ef41.wav')
 print(len(data))
-
-# plt.figure(figsize=(12, 4))
-# librosa.display.waveplot(data, sr=sampling_rate)

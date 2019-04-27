@@ -15,14 +15,16 @@ def save_fig(fig_id, tight_layout=False, fig_extension="png", resolution=200):
     :param tight_layout: boolean (default: False)
     :param fig_extension: file extension (default: png)
     :param resolution: figure resolution (default: 200)
-    :return:
+    :return: saved figure in specified folder
     """
 
     path = os.path.join(IMAGES_PATH, fig_id + "." + fig_extension)
+
     print(f'Saving figure: {path}')
 
     if tight_layout:
         plt.tight_layout()
 
     plt.savefig(fname=path, format=fig_extension, dpi=resolution)
+
     return
