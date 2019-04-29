@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5fb335eb-00ce-454a-b09a-cf30af7bd863" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/00b_plot_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/00b_plot_test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +41,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/00b_plot_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+            <state relative-caret-position="512">
+              <caret line="54" column="26" lean-forward="true" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -268,7 +267,7 @@
       <workItem from="1556382267653" duration="80000" />
       <workItem from="1556382395139" duration="205000" />
       <workItem from="1556382888832" duration="385000" />
-      <workItem from="1556475652322" duration="1329000" />
+      <workItem from="1556475652322" duration="2398000" />
     </task>
     <task id="LOCAL-00001" summary="Got AWS working but not all modules are running.">
       <created>1556157753645</created>
@@ -302,7 +301,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62385000" />
+    <option name="totallyTimeSpent" value="63454000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -315,9 +314,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2863248" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2863248" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -428,8 +426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/code/00b_plot_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+        <state relative-caret-position="512">
+          <caret line="54" column="26" lean-forward="true" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
