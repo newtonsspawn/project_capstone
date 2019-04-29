@@ -7,16 +7,19 @@ import matplotlib.pyplot as plt
 import wave
 
 curated_df = pd.read_csv('../data/train_curated.csv')
+noisy_df = pd.read_csv('../data/train_noisy.csv')
+combined_df = curated_df.append(noisy_df, ignore_index=True)
 
 
-def plot_signal_wave(sample):
+def plot_signal_wave(sample, sample_set='curated'):
     """
 
     :param sample: sample sound file to process
     :return: cignal wave plot of file
     """
 
-    file = os.path.join('../data/train_curated', sample)
+    file = os.path.join(f'../data/train_{sample_set}', sample)
+    file_name = os.path.splitext(sample)[0]
 
     with wave.open(file, 'r') as wav_file:
         # Extract Raw Audio from Wav File
@@ -34,16 +37,19 @@ def plot_signal_wave(sample):
                            num=len(signal)/len(channels))
 
         # Get label from dataframe
-        name = curated_df[curated_df['fname'] == sample]['labels'].values[0]
+        label = combined_df[combined_df['fname'] == sample]['labels'].values[0]
 
         # Plot
         plt.figure(1)
-        plt.title(f'Signal Wave: {name}')
+        plt.title(f'Signal Wave: {label} | (file: {sample})')
         for channel in channels:
             plt.plot(time, channel)
-        # save_fig(name)
+        save_fig(f'{file_name}_{label}_({sample_set})')
 
     return plt.show()
 
 
-plot_signal_wave('0019ef41.wav')
+# plot_signal_wave('00097e21.wav', 'noisy')
+
+for file in curated_df[curated_df['labels'] == 'Fart']['fname'].head(10).values:
+    plot_signal_wave(file)
