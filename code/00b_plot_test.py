@@ -49,7 +49,7 @@ def plot_signal_wave(sample, sample_set='curated'):
     return plt.show()
 
 
-# plot_signal_wave('00097e21.wav', 'noisy')
+plot_signal_wave('0019adae.wav', 'noisy')
 
-for file in curated_df[curated_df['labels'] == 'Fart']['fname'].head(10).values:
-    plot_signal_wave(file)
+# for file in curated_df[curated_df['labels'] == 'Fart']['fname'].head(10).values:
+#     plot_signal_wave(file)
