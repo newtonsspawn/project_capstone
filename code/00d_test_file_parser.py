@@ -40,7 +40,7 @@ noisy_df = pd.read_csv('../data/train_noisy.csv')
 
 curated_parsed_mfcc_df = pd.DataFrame(columns=['feature', 'labels'])
 
-for row in range(len(curated_df.head())):
+for row in range(len(curated_df)):
     curated_parsed_mfcc_df = curated_parsed_mfcc_df.append(parser(curated_df.iloc[row]),
                                                  ignore_index=True)
 
@@ -50,7 +50,7 @@ curated_parsed_mfcc_df.to_json('../assets/curated_parsed_mfcc.json')
 
 noisy_parsed_mfcc_df = pd.DataFrame(columns=['feature', 'labels'])
 
-for row in range(len(noisy_df.head())):
+for row in range(len(noisy_df)):
     noisy_parsed_mfcc_df = noisy_parsed_mfcc_df.append(parser(noisy_df.iloc[row],
                                                          sample_set='noisy'),
                                                  ignore_index=True)
