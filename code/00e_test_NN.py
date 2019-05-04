@@ -38,7 +38,7 @@ num_labels = y.shape[1]
 model = Sequential()
 
 
-model.add(Dense(256, activation='relu', input_shape=(40,)))
+model.add(Dense(256, activation='relu', input_shape=(60,)))
 
 model.add(Dense(256, activation='relu',))
 model.add(Dropout(0.5))
