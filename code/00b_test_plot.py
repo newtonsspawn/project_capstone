@@ -15,7 +15,8 @@ def plot_signal_wave(sample, sample_set='curated'):
     """
     This function will take a sound file from either the curated or noisy set
     and display its waveform graphically. 
-    :param sample: sample sound file to process
+    
+    :param sample: name of the file
     :param sample_set: which sample set to find file (default: curated) 
     :return: signal wave plot of file
     """
@@ -46,7 +47,7 @@ def plot_signal_wave(sample, sample_set='curated'):
         plt.title(f'Signal Wave: {label} | (file: {sample})')
         for channel in channels:
             plt.plot(time, channel)
-        save_fig(f'{file_name}_{label}_({sample_set})')
+        save_fig(f'{file_name}_{label}_({sample_set})', folder=wave_plots)
 
     return plt.show()
 
