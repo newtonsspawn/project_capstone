@@ -11,7 +11,7 @@ from keras.layers import Dense, Dropout
 import matplotlib.pyplot as plt
 
 
-curated_parsed_mfcc_df = pd.read_json('../assets/curated_parsed_mfcc.json')
+curated_parsed_mfcc_df = pd.read_json('../assets/curated_parsed_mfcc_60.json')
 
 df = curated_parsed_mfcc_df[curated_parsed_mfcc_df.duplicated(subset=['labels'],
                                                               keep=False)]
@@ -39,16 +39,17 @@ model = Sequential()
 
 
 model.add(Dense(256, activation='relu', input_shape=(40,)))
+
+model.add(Dense(256, activation='relu',))
 model.add(Dropout(0.5))
 
-# model.add(Dense(256, activation='relu',))
-# model.add(Dropout(0.5))
+model.add(Dense(64, activation='relu',))
+model.add(Dropout(0.5))
 
 model.add(Dense(64, activation='relu',))
 model.add(Dropout(0.5))
 
 model.add(Dense(256, activation='relu',))
-model.add(Dropout(0.5))
 
 model.add(Dense(num_labels, activation='softmax'))
 
@@ -66,19 +67,22 @@ history = model.fit(X_train, y_train,
 
 model.summary()
 
-print(history.history['acc'])
-print(history.history['val_acc'])
+
+print(f"Train accuracy: {history.history['acc']}")
+print(f"Test accuracy: {history.history['val_acc']}")
+print('\n')
+
 
 plt.figure(1)
-plt.plot(history.history['loss'], label='Train loss')
-plt.plot(history.history['val_loss'], label='Test loss')
-plt.title('NN Model Train & Test Accuracy')
-plt.legend()
-save_fig('curated_NN_loss_plot', folder='NN_metrics')
-
-plt.figure(2)
 plt.plot(history.history['acc'], label='Train accuracy')
 plt.plot(history.history['val_acc'], label='Test accuracy')
-plt.title('NN Model Train & Test Accuracy')
+plt.title('NN Model Training & Testing Accuracy by Epoch')
 plt.legend()
-save_fig('curated_NN_acc_plot', folder='NN_metrics')
+save_fig('curated_NN_60_acc_plot', folder='NN_metrics')
+
+plt.figure(2)
+plt.plot(history.history['loss'], label='Train loss')
+plt.plot(history.history['val_loss'], label='Test loss')
+plt.title('NN Model Training & Testing Loss by Epoch')
+plt.legend()
+save_fig('curated_NN_60_loss_plot', folder='NN_metrics')
