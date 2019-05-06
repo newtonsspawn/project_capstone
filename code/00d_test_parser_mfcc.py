@@ -45,12 +45,12 @@ curated_parsed_mfcc_df = pd.DataFrame(columns=['feature', 'labels'])
 
 for row in range(len(curated_df)):
     curated_parsed_mfcc_df = curated_parsed_mfcc_df.append(mfcc_parser(curated_df.iloc[row],
-                                                                       n_mfcc=60),
+                                                                       n_mfcc=20),
                                                            ignore_index=True)
     if (row % 100) == 0:
         print(f'...processed {row} files')
 
-curated_parsed_mfcc_df.to_json('../assets/curated_parsed_mfcc_60.json')
+curated_parsed_mfcc_df.to_json('../assets/curated_parsed_mfcc_20.json')
 
 
 noisy_parsed_mfcc_df = pd.DataFrame(columns=['feature', 'labels'])
