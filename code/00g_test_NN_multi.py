@@ -22,7 +22,7 @@ labels = list(combined_df.columns)
 labels = labels[3:]
 
 df = combined_parsed_mfcc_df.merge(combined_df, left_index=True, right_index=True)
-df = df[df.duplicated(subset=labels, keep=False)]
+# df = df[df.duplicated(subset=labels, keep=False)]
 
 X = np.array(df['feature'].tolist())
 y = np.array(df[labels])
@@ -59,29 +59,31 @@ model.add(Dense(256, activation='relu',))
 model.add(Dense(num_labels, activation='sigmoid'))
 
 
-model.compile(loss='categorical_crossentropy',
-              metrics=['accuracy'],
+model.compile(loss='binary_crossentropy',
+              metrics=['categorical_accuracy'],
               optimizer='adam')
 
 
 history = model.fit(X_train, y_train,
                     batch_size=32,
-                    epochs=10,
+                    epochs=100,
                     validation_data=(X_test, y_test))
 
 model.summary()
 
-print(f"Train accuracy: {history.history['acc']}")
-print(f"Test accuracy: {history.history['val_acc']}")
+# print(f"Train accuracy: {history.history['acc']}")
+# print(f"Test accuracy: {history.history['val_acc']}")
+# print('\n')
+
+pred = model.predict_proba(X_test_sc)
+print(pred[:2])
 print('\n')
 
-pred = model.predict_classes(X_test_sc)
-print(pred[:50])
-
+# print(history.history)
 
 plt.figure(1)
-plt.plot(history.history['acc'], label='Train accuracy')
-plt.plot(history.history['val_acc'], label='Test accuracy')
+plt.plot(history.history['categorical_accuracy'], label='Train accuracy')
+plt.plot(history.history['val_categorical_accuracy'], label='Test accuracy')
 plt.title('NN Model Training & Testing Accuracy by Epoch')
 plt.legend()
 save_fig('NN_multi_40_acc_plot', folder='NN_metrics')
