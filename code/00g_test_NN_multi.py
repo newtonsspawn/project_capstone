@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras import metrics
+import tensorflow as tf
 
 import matplotlib.pyplot as plt
 
@@ -60,7 +61,7 @@ model.add(Dense(num_labels, activation='sigmoid'))
 
 
 model.compile(loss='binary_crossentropy',
-              metrics=['categorical_accuracy'],
+              metrics=['binary_crossentropy'],
               optimizer='adam')
 
 
@@ -82,8 +83,8 @@ print('\n')
 # print(history.history)
 
 plt.figure(1)
-plt.plot(history.history['categorical_accuracy'], label='Train accuracy')
-plt.plot(history.history['val_categorical_accuracy'], label='Test accuracy')
+plt.plot(history.history['binary_crossentropy'], label='Train accuracy')
+plt.plot(history.history['val_binary_crossentropy'], label='Test accuracy')
 plt.title('NN Model Training & Testing Accuracy by Epoch')
 plt.legend()
 save_fig('NN_multi_40_acc_plot', folder='NN_metrics')
