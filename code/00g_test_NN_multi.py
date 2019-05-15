@@ -60,8 +60,8 @@ model.add(Dense(256, activation='relu',))
 model.add(Dense(num_labels, activation='sigmoid'))
 
 
-model.compile(loss='binary_crossentropy',
-              metrics=['binary_crossentropy'],
+model.compile(loss='sigmoid',
+              metrics=['accuracy'],
               optimizer='adam')
 
 
@@ -72,26 +72,26 @@ history = model.fit(X_train, y_train,
 
 model.summary()
 
-# print(f"Train accuracy: {history.history['acc']}")
-# print(f"Test accuracy: {history.history['val_acc']}")
-# print('\n')
+print(f"Train accuracy: {history.history['acc']}")
+print(f"Test accuracy: {history.history['val_acc']}")
+print('\n')
 
 pred = model.predict_proba(X_test_sc)
 print(pred[:2])
 print('\n')
 
-# print(history.history)
+print(history.history)
 
-plt.figure(1)
-plt.plot(history.history['binary_crossentropy'], label='Train accuracy')
-plt.plot(history.history['val_binary_crossentropy'], label='Test accuracy')
-plt.title('NN Model Training & Testing Accuracy by Epoch')
-plt.legend()
-save_fig('NN_multi_40_acc_plot', folder='NN_metrics')
-
-plt.figure(2)
-plt.plot(history.history['loss'], label='Train loss')
-plt.plot(history.history['val_loss'], label='Test loss')
-plt.title('NN Model Training & Testing Loss by Epoch')
-plt.legend()
-save_fig('NN_multi_40_loss_plot', folder='NN_metrics')
+# plt.figure(1)
+# plt.plot(history.history['binary_crossentropy'], label='Train accuracy')
+# plt.plot(history.history['val_binary_crossentropy'], label='Test accuracy')
+# plt.title('NN Model Training & Testing Accuracy by Epoch')
+# plt.legend()
+# save_fig('NN_multi_40_acc_plot', folder='NN_metrics')
+# 
+# plt.figure(2)
+# plt.plot(history.history['loss'], label='Train loss')
+# plt.plot(history.history['val_loss'], label='Test loss')
+# plt.title('NN Model Training & Testing Loss by Epoch')
+# plt.legend()
+# save_fig('NN_multi_40_loss_plot', folder='NN_metrics')
