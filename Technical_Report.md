@@ -260,4 +260,9 @@ successive run.
 
 2. **Different Transformations** - There are many more ways to transform sounds
 and conduct signal processing. We could apply different techniques here and even
-combine different types to see if they perform better in our models. 
+combine different types to see if they perform better in our models.
+
+3. **Background Noise Reducer** - Because the model has a hard time separating
+the sounds from the background noise in the noisy samples, developing a method
+to subtract the background noise from each file would serve to help isolate the
+target sounds better. 
