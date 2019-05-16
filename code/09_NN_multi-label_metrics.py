@@ -16,7 +16,7 @@ combined_predictions = pd.read_csv('../assets/combined_predictions.csv',
 labels = combined_dummies.columns[2:]
 
 precision_dict = {}
-
+precision_weights = []
 
 for label in labels:
     y_true = combined_dummies[label]
@@ -26,13 +26,20 @@ for label in labels:
 
     precision_dict[label] = precision_score(y_true, y_pred)
 
+    precision_weights.append(np.sum(y_true))
+
 
 precisions = sorted(precision_dict.items(),
                     key=operator.itemgetter(1),
                     reverse=True)
 
-average_precision = np.average([item[1] for item in precisions])
+average_precision = np.sum(
+    np.multiply(
+        [item for item in precision_dict.values()],
+        precision_weights)) / np.sum(precision_weights)
 print(average_precision)
+
+
 
 print(precision_dict['Fart'])
 
